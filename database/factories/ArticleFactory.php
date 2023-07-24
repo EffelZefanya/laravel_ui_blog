@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ArticleFactory extends Factory
 {
+
     /**
      * Define the model's default state.
      *
@@ -19,7 +20,6 @@ class ArticleFactory extends Factory
         return [
             "title" => fake()->sentence(),
             "content" =>fake()->text(),
-            "image" => fake()->image(640, 480, 'animals', true),
             "user_id" => rand(1, 3),
             "category_id" => rand(1,10)
         ];
