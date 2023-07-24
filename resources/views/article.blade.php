@@ -7,7 +7,7 @@
         </div>
         <div>
             <h2>Create New Article</h2>
-            <a href="/addArticlePage" class="btn primary-btn">Add Article</a>
+            <a href="/addArticlePage" class="btn dark-btn">Add Article</a>
         </div>
         <div class="row justify-content-center">
             @foreach ($articles as $article)
@@ -28,7 +28,7 @@
                     </form>
                     <form action="/updateArticlePage/{{ $article->id }}" method="GET">
                         @csrf
-                        <input class="btnact" type="submit" value="Update">
+                        <input class="btn" type="submit" value="Update">
                     </form>
                 </div>
             </div>
