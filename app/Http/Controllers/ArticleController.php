@@ -16,6 +16,12 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
+        return view('all-article', ['articles' => $articles]);
+    }
+
+    public function yourArticles()
+    {
+        $articles = Article::where('user_id', Auth::user()->id)->get();
         return view('article', ['articles' => $articles]);
     }
 

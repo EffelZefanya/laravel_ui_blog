@@ -18,6 +18,12 @@ class CategoryController extends Controller
         return view('categories', ['categories' => $categories]);
     }
 
+    public function yourCategories()
+    {
+        $categories = Category::where('user_id', Auth::user()->id)->get();
+        return view('categories', ['categories' => $categories]);
+    }
+
     public function addCategory(Request $req){
         // dd($req->all());
 

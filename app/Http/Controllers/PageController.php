@@ -30,4 +30,10 @@ class PageController extends Controller
         $category = Category::find($id);
         return view('update-category',['category' => $category]);
     }
+
+    public function readArticle($id){
+        $article = Article::find($id);
+
+        return view('article-detail', ['article' => $article]);
+    }
 }

@@ -53,10 +53,13 @@
                                 <a class="nav-link" href="/home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/articles">Articles</a>
+                                <a class="nav-link" href="/allArticles">All Articles</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/categories">Categories</a>
+                                <a class="nav-link" href="/yourArticles">Your Articles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/yourCategories">Your Categories</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
