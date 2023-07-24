@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,5 +24,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/addArticlePage', [PageController::class, 'goToAddArticle']);
+
 // route CRUD
 Route::get('/articles', [ArticleController::class, 'index']);
+
+Route::post('/addArticle', [ArticleController::class, 'addArticle']);

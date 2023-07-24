@@ -7,7 +7,7 @@
         </div>
         <div class="row justify-content-center">
             @foreach ($articles as $article)
-            <img src="{{ Storage::url('article_images/' . $article->image)}}" alt="Article Image">
+            <img src="{{ Storage::url('images/' . $article->image)}}" alt="Article Image">
             <div class="col-sm card">
                 <div class="card-body">
                     <h4 class="card-title">{{ $article->title }}</h4>
