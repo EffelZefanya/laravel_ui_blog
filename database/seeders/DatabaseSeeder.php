@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,10 +18,13 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'Epel',
+            'email' => 'epel@example.com',
+            'password' => '12345678',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
 
         User::factory(5)->create();
         Article::factory(15)->create();
