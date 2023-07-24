@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PageController;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +31,9 @@ Route::get('/addArticlePage', [PageController::class, 'goToAddArticle']);
 
 Route::get('updateArticlePage/{id}', [PageController::class, 'goToUpdateArticle']);
 
-// route CRUD
+Route::get("/addCategoryPage", [PageController::class, 'goToAddCategory']);
+
+// Article CRUD
 Route::get('/articles', [ArticleController::class, 'index']);
 
 Route::post('/addArticle', [ArticleController::class, 'addArticle']);
@@ -37,3 +41,8 @@ Route::post('/addArticle', [ArticleController::class, 'addArticle']);
 Route::delete('/deleteArticle/{id}', [ArticleController::class, 'deleteArticle']);
 
 Route::post('updateArticle/{id}', [ArticleController::class, 'updateArticle']);
+
+// Category CRUD
+Route::get('/categories', [CategoryController::class, 'index']);
+
+Route::get('/addCategory', [CategoryController::class, 'addCategory']);

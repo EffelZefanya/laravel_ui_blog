@@ -20,4 +20,8 @@ class PageController extends Controller
         $category = Category::all();
         return view('update-article', ['article' => $article, 'category' => $category]);
     }
+
+    public function goToAddCategory(){
+        return view('add-category');
+    }
 }

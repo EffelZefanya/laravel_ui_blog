@@ -8,7 +8,7 @@
             </div>
         @endif
         <div class="main-form ms-3 mt-3 me-3">
-            <h1>Add New Article</h1>
+            <h1>Add New Category</h1>
             <form action="/addArticle" enctype="multipart/form-data" method=POST>
                 @csrf
                 <div class="form-floating mb-3">
