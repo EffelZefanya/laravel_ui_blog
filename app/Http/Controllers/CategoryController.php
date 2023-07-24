@@ -52,4 +52,26 @@ class CategoryController extends Controller
 
         return redirect('/categories');
     }
+
+    public function updateCategory(Request $req, $id){
+        $rules = [
+            'name' => 'required|max:255|unique:categories',
+        ];
+
+        $validator = Validator::make($req->all(), $rules);
+
+        if($validator->fails()){
+            return back()->withErrors($validator);
+        }
+
+        $current_user = User::where('name', 'LIKE', '%' . Auth::user()->name . '%')->first();
+
+        Category::where('id', $req->id)->update([
+            'name' =>$req->name,
+            'user_id' => $current_user->id,
+            'updated_at' => Carbon::now()
+        ]);
+
+        return redirect('/updateCategoryPage/' . $req->id)->with('message', 'Category successfully updated');
+    }
 }

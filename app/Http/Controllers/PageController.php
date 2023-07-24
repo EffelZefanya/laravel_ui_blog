@@ -24,4 +24,10 @@ class PageController extends Controller
     public function goToAddCategory(){
         return view('add-category');
     }
+
+    public function goToUpdateCategory($id)
+    {
+        $category = Category::find($id);
+        return view('update-category',['category' => $category]);
+    }
 }

@@ -33,6 +33,8 @@ Route::get('/updateArticlePage/{id}', [PageController::class, 'goToUpdateArticle
 
 Route::get("/addCategoryPage", [PageController::class, 'goToAddCategory']);
 
+Route::get('/updateCategoryPage/{id}', [PageController::class, 'goToUpdateCategory']);
+
 // Article CRUD
 Route::get('/articles', [ArticleController::class, 'index']);
 
@@ -49,4 +51,4 @@ Route::post('/addCategory', [CategoryController::class, 'addCategory']);
 
 Route::delete('/deleteCategory/{id}', [CategoryController::class, 'deleteCategory']);
 
-Route::post('/updateCategory/{id}', [CategoryController::class, 'updateArticle']);
+Route::post('/updateCategory/{id}', [CategoryController::class, 'updateCategory']);
