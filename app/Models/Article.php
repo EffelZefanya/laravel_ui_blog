@@ -17,9 +17,9 @@ class Article extends Model
         'image',
     ];
 
-    public function category(): HasMany
+    public function category(): BelongsTo
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(User::class);
     }
 
     public function user(): BelongsTo
