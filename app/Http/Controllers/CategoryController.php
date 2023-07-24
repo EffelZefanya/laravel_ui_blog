@@ -42,4 +42,14 @@ class CategoryController extends Controller
 
         return redirect('/addCategoryPage')->with('message', 'Category successfully inserted');
     }
+
+    public function deleteCategory($id){
+        $category = Category::find($id);
+
+        if(isset($category)){
+            $category->delete();
+        }
+
+        return redirect('/categories');
+    }
 }

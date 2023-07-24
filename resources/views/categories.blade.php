@@ -12,12 +12,12 @@
                 <div class="card-body">
                     <h6 class="card-subtitle">{{"by " . $category->user->name }}</h6>
                     <br>
-                    {{-- <form action="/deleteArticle/{{$article->id}}" method="POST">
+                    <form action="/deleteCategory/{{$category->id}}" method="POST">
                         {{method_field('DELETE')}}
                         @csrf
                         <input type="submit" value="Delete">
                     </form>
-                    <form action="/updateArticlePage/{{ $article->id }}" method="GET">
+                    {{-- <form action="/updateArticlePage/{{ $article->id }}" method="GET">
                         @csrf
                         <input class="btnact" type="submit" value="Update">
                     </form> --}}

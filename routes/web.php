@@ -46,3 +46,5 @@ Route::post('updateArticle/{id}', [ArticleController::class, 'updateArticle']);
 Route::get('/categories', [CategoryController::class, 'index']);
 
 Route::post('/addCategory', [CategoryController::class, 'addCategory']);
+
+Route::delete('/deleteCategory/{id}', [CategoryController::class, 'deleteCategory']);
