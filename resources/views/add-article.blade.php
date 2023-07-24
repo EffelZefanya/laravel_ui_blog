@@ -49,8 +49,8 @@
                         @foreach($category as $categories)
                         <option value="{{ $categories->name}}">{{ $categories->name }}</option>
                         @endforeach
-                        <option value=""><a href="/addCategoryPage">Create New Category</a></option>
                     </select>
+                    <a href="/addCategoryPage">Create New Category</a>
                     <label for="content">Article Category</label>
                 </div>
                 <br>

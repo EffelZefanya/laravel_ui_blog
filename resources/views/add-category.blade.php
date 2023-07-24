@@ -9,56 +9,19 @@
         @endif
         <div class="main-form ms-3 mt-3 me-3">
             <h1>Add New Category</h1>
-            <form action="/addArticle" enctype="multipart/form-data" method=POST>
+            <form action="/addCategory" enctype="multipart/form-data" method=POST>
                 @csrf
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="titleInput" name="title" placeholder="Your article content">
-                    <label for="title">Article Title</label>
+                    <input type="text" class="form-control" id="nameInput" name="name" placeholder="Your category name">
+                    <label for="name">Category Name</label>
                 </div>
                 <br>
                 <div class="error-msg">
-                    @error('title')
+                    @error('name')
                     <strong>{{ $message }}</strong>
                     @enderror
                 </div>
                 <hr>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="contentInput" name="content" placeholder="Your article content">
-                    <label for="content">Article Content</label>
-                </div>
-                <br>
-                <div class="error-msg">
-                    @error('content')
-                    <strong>{{ $message }}</strong>
-                    @enderror
-                </div>
-                <hr>
-                <div class="form-floating mb-3">
-                    <h4>Article image</h4>
-                    <input type="file" name="image">
-                </div>
-                <br>
-                <div class="error-msg">
-                    @error('image')
-                    <strong>{{ $message }}</strong>
-                    @enderror
-                </div>
-                <hr>
-                <div class="form-floating mb-3">
-                    <select class="form-select" name="category" id="category" name="category">
-                        @foreach($category as $categories)
-                        <option value="{{ $categories->name}}">{{ $categories->name }}</option>
-                        @endforeach
-                        <option value=""><a href="/addCategoryPage">Create New Category</a></option>
-                    </select>
-                    <label for="content">Article Category</label>
-                </div>
-                <br>
-                <div class="error-msg">
-                    @error('category')
-                    <strong>{{ $message }}</strong>
-                    @enderror
-                </div>
                 <input type="submit" value="Submit">
             </form>
         </div>

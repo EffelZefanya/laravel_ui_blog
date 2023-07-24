@@ -18,9 +18,11 @@ class CategoryController extends Controller
         return view('categories', ['categories' => $categories]);
     }
 
-    public function addCategory($req){
+    public function addCategory(Request $req){
+        // dd($req->all());
+
         $rules = [
-            'name' => 'required|max:255',
+            'name' => 'required|max:255|unique:categories',
         ];
 
         $validator = Validator::make($req->all(), $rules);
@@ -31,7 +33,7 @@ class CategoryController extends Controller
 
         $current_user = User::where('name', 'LIKE', '%' . Auth::user()->name . '%')->first();
 
-        Article::insert([
+        Category::insert([
             'name' =>$req->name,
             'user_id' => $current_user->id,
             'created_at' => Carbon::now(),

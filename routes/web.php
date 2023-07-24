@@ -45,4 +45,4 @@ Route::post('updateArticle/{id}', [ArticleController::class, 'updateArticle']);
 // Category CRUD
 Route::get('/categories', [CategoryController::class, 'index']);
 
-Route::get('/addCategory', [CategoryController::class, 'addCategory']);
+Route::post('/addCategory', [CategoryController::class, 'addCategory']);

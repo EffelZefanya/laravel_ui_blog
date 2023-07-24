@@ -5,6 +5,10 @@
         <div class="text-center">
             <h1>Articles</h1>
         </div>
+        <div>
+            <h2>Create New Article</h2>
+            <a href="/addArticlePage" class="btn primary-btn">Add Article</a>
+        </div>
         <div class="row justify-content-center">
             @foreach ($articles as $article)
             <img src="{{ Storage::url('images/' . $article->image)}}" alt="Article Image">
