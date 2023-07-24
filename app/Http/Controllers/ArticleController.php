@@ -89,7 +89,7 @@ class ArticleController extends Controller
             $image = $req->file('image');
 
             $imageExtension = $image->getClientOriginalExtension();
-            $fileNameImage = $req->name . '.' . $imageExtension;
+            $fileNameImage = $req->title . '.' . $imageExtension;
 
             Storage::putFileAs('public/images', $image, $fileNameImage);
 
