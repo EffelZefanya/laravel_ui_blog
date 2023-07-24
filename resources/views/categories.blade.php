@@ -17,10 +17,10 @@
                         @csrf
                         <input type="submit" value="Delete">
                     </form>
-                    {{-- <form action="/updateArticlePage/{{ $article->id }}" method="GET">
+                    <form action="/updateArticlePage/{{ $article->id }}" method="GET">
                         @csrf
                         <input class="btnact" type="submit" value="Update">
-                    </form> --}}
+                    </form>
                 </div>
             </div>
             <div style="height:50px">

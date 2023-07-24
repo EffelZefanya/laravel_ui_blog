@@ -29,7 +29,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/addArticlePage', [PageController::class, 'goToAddArticle']);
 
-Route::get('updateArticlePage/{id}', [PageController::class, 'goToUpdateArticle']);
+Route::get('/updateArticlePage/{id}', [PageController::class, 'goToUpdateArticle']);
 
 Route::get("/addCategoryPage", [PageController::class, 'goToAddCategory']);
 
@@ -40,7 +40,7 @@ Route::post('/addArticle', [ArticleController::class, 'addArticle']);
 
 Route::delete('/deleteArticle/{id}', [ArticleController::class, 'deleteArticle']);
 
-Route::post('updateArticle/{id}', [ArticleController::class, 'updateArticle']);
+Route::post('/updateArticle/{id}', [ArticleController::class, 'updateArticle']);
 
 // Category CRUD
 Route::get('/categories', [CategoryController::class, 'index']);
@@ -48,3 +48,5 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::post('/addCategory', [CategoryController::class, 'addCategory']);
 
 Route::delete('/deleteCategory/{id}', [CategoryController::class, 'deleteCategory']);
+
+Route::post('/updateCategory/{id}', [CategoryController::class, 'updateArticle']);

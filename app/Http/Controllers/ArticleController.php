@@ -96,6 +96,16 @@ class ArticleController extends Controller
             Article::where('id', $req->id)->update([
                 'image' => $fileNameImage
             ]);
+        }else{
+            $image = $req->file('image');
+            $imageExtension = $image->getClientOriginalExtension();
+            $fileNameImage = $req->title . '.' . $imageExtension;
+
+            Storage::putFileAs('public/images', $image, $fileNameImage);
+
+            Article::where('id', $req->id)->update([
+                'image' => $fileNameImage
+            ]);
         }
 
         Article::where('id', $req->id)->update([
