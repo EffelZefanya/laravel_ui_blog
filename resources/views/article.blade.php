@@ -22,6 +22,10 @@
                         @csrf
                         <input type="submit" value="Delete">
                     </form>
+                    <form action="/updateArticlePage/{{ $article->id }}" method="GET">
+                        @csrf
+                        <input class="btnact" type="submit" value="Update">
+                    </form>
                 </div>
             </div>
             <div style="height:50px">

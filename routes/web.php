@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PageController;
+use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,9 +27,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/addArticlePage', [PageController::class, 'goToAddArticle']);
 
+Route::get('updateArticlePage/{id}', [PageController::class, 'goToUpdateArticle']);
+
 // route CRUD
 Route::get('/articles', [ArticleController::class, 'index']);
 
 Route::post('/addArticle', [ArticleController::class, 'addArticle']);
 
 Route::delete('/deleteArticle/{id}', [ArticleController::class, 'deleteArticle']);
+
+Route::post('updateArticle/{id}', [ArticleController::class, 'updateArticle']);
