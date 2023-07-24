@@ -14,7 +14,14 @@
                     <h5 class="card-subtitle">{{ $article->content }}</h5>
                     <br />
                     <h6 class="card-subtitle">{{"by " . $article->user->name }}</h6>
+                    <br>
                     <h6 class=card-subtitle>{{ "category: " . $article->category->name }}</h6>
+                    <br>
+                    <form action="/deleteArticle/{{$article->id}}" method="POST">
+                        {{method_field('DELETE')}}
+                        @csrf
+                        <input type="submit" value="Delete">
+                    </form>
                 </div>
             </div>
             <div style="height:50px">

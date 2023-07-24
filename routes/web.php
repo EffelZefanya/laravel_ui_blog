@@ -30,3 +30,5 @@ Route::get('/addArticlePage', [PageController::class, 'goToAddArticle']);
 Route::get('/articles', [ArticleController::class, 'index']);
 
 Route::post('/addArticle', [ArticleController::class, 'addArticle']);
+
+Route::delete('/deleteArticle/{id}', [ArticleController::class, 'deleteArticle']);

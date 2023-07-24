@@ -60,4 +60,15 @@ class ArticleController extends Controller
 
         return redirect('/addArticlePage')->with('message', 'Article successfully Inserted!');
     }
+
+    public function deleteArticle($id){
+        $article = Article::find($id);
+
+        if(isset($article)){
+            Storage::delete('public/'.$article->image);
+            $article->delete();
+        }
+
+        return redirect('/articles');
+    }
 }
