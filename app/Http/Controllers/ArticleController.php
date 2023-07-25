@@ -30,41 +30,44 @@ class ArticleController extends Controller
         // dd($req->all());
         $category = Category::all();
 
-        $rules = [
-            'title' => 'required|max:255',
-            'content' => 'required|max:65535',
-            'image' => 'required|mimes:jpg, jpeg, png',
-            'category' => 'required'
-        ];
+    $rules = [
+        'title' => 'required|max:255',
+        'content' => 'required|max:65535',
+        'image' => 'required|mimes:jpg,jpeg,png',
+        'category' => 'required'
+    ];
 
-        $validator = Validator::make($req->all(), $rules);
+    $validator = Validator::make($req->all(), $rules);
 
-        if($validator->fails()){
-            return back()->withErrors($validator);
-        }
+    if ($validator->fails()) {
+        return back()->withErrors($validator);
+    }
 
-        $new_category = $req->category;
+    $new_category = $req->category;
 
-        $saved_category = Category::where('name', 'LIKE', '%' . $new_category . '%')->first();
-        $current_user = User::where('name', 'LIKE', '%' . Auth::user()->name . '%')->first();
+    // Find the exact category that matches the input name.
+    $saved_category = Category::where('name', $new_category)->first();
 
-        $image = $req->file('image');
-        $imageExtension = $image->getClientOriginalExtension();
-        $fileNameImage = $req->title . '.' . $imageExtension;
+    // Get the current authenticated user.
+    $current_user = Auth::user();
 
-        Storage::putFileAs('public/images/', $image, $fileNameImage);
+    $image = $req->file('image');
+    $imageExtension = $image->getClientOriginalExtension();
+    $fileNameImage = $req->title . '.' . $imageExtension;
 
-        Article::insert([
-            'title' => $req->title,
-            'content' => $req->content,
-            'image' => $fileNameImage,
-            'category_id' => $saved_category->id,
-            'user_id' => $current_user->id,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ]);
+    Storage::putFileAs('public/images/', $image, $fileNameImage);
 
-        return redirect('/addArticlePage')->with('message', 'Article successfully Inserted!');
+    Article::insert([
+        'title' => $req->title,
+        'content' => $req->content,
+        'image' => $fileNameImage,
+        'category_id' => $saved_category->id,
+        'user_id' => $current_user->id,
+        'created_at' => Carbon::now(),
+        'updated_at' => Carbon::now()
+    ]);
+
+    return redirect('/addArticlePage')->with('message', 'Article successfully Inserted!');
     }
 
     public function updateArticle(Request $req, $id)
